@@ -811,4 +811,108 @@ window.Modernizr = (function(window,doc,undefined){
     return ret;
 
 })(this,this.document);
-    
+
+
+
+
+// Mobile stuff
+Modernizr.addTest('orientation', function(){
+  return (typeof window.orientation == 'number');
+});
+Modernizr.addTest('onorientationchange', function(){
+  return (typeof window.onorientationchange == 'object');
+});
+Modernizr.addTest('touchstart', function(){
+  var dummy = document.createElement("div");
+  dummy.setAttribute("ontouchstart", "return;");
+  return typeof dummy.ontouchstart == "function" ? true : false;
+});
+Modernizr.addTest('touchmove', function(){
+  var dummy = document.createElement("div");
+  dummy.setAttribute("ontouchmove", "return;");
+  return typeof dummy.ontouchmove == "function" ? true : false;
+});
+Modernizr.addTest('touchcancel', function(){
+  var dummy = document.createElement("div");
+  dummy.setAttribute("ontouchcancel", "return;");
+  return typeof dummy.ontouchcancel == "function" ? true : false;
+});
+Modernizr.addTest('touchend', function(){
+  var dummy = document.createElement("div");
+  dummy.setAttribute("ontouchend", "return;");
+  return typeof dummy.ontouchend == "function" ? true : false;
+});
+
+/* gestures don't seem to be registered...  */
+Modernizr.addTest('gesturestart', function(){
+  var dummy = document.createElement("div");
+  dummy.setAttribute("ongesturestart", "return;");
+  return typeof dummy.ongesturestart == "function" ? true : false;
+});
+Modernizr.addTest('gesturechange', function(){
+  var dummy = document.createElement("div");
+  dummy.setAttribute("ongesturechange", "return;");
+  return typeof dummy.ongesturechange == "function" ? true : false;
+});
+Modernizr.addTest('gestureend', function(){
+  var dummy = document.createElement("div");
+  dummy.setAttribute("ongestureend", "return;");
+  return typeof dummy.ongestureend == "function" ? true : false;
+});
+
+
+
+
+Modernizr.addTest('standalone', function(){
+  return ('standalone' in navigator) && navigator['standalone'] !== null;
+});
+
+
+// Misc
+Modernizr.addTest('online', function(){
+  return ('onLine' in navigator) && navigator['onLine'] !== null;
+});
+Modernizr.addTest('ononline', function(){
+  return 'ononline' in window;
+});
+Modernizr.addTest('onoffline', function(){
+  return 'onoffline' in window;
+});
+Modernizr.addTest('onpageshow', function(){
+  return 'onpageshow' in window;
+});
+Modernizr.addTest('onpagehide', function(){
+  return 'onpagehide' in window;
+});
+Modernizr.addTest('onpopstate', function(){
+  return 'onpopstate' in window;
+});
+Modernizr.addTest('onredo', function(){
+  return 'onredo' in window;
+});
+Modernizr.addTest('onundo', function(){
+  return 'onundo' in window;
+});
+Modernizr.addTest('onstorage', function(){
+  return 'onstorage' in window;
+});
+Modernizr.addTest('js-constants', function(){
+  try {
+      const g = 5;
+      return true;
+  } catch(e) {
+      return false;
+  }
+});
+Modernizr.addTest('js-date-now', function(){
+  return ('now' in Date) && Date['now'] !== null;
+});
+Modernizr.addTest('js-getElementsByClassName', function(){
+  return (typeof document.getElementsByClassName == 'function');
+});
+Modernizr.addTest('js-querySelector', function(){
+  return (typeof document.querySelector == 'function');
+});
+Modernizr.addTest('js-querySelectorAll', function(){
+  return (typeof document.querySelectorAll == 'function');
+});
